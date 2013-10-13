@@ -133,7 +133,9 @@ class AndTimePicker
         @element.querySelector("#{HOURS_ITEMS_SELECTOR}[data-hour=\"#{hour}\"]").classList.add 'active'
 
         # set rotation
-        @hr.style.transform = "rotate(#{hour * 30 - 180}deg)"
+        transform = "rotate(#{hour * 30 - 180}deg)"
+        @hr.style.transform = transform
+        @hr.style["#{prop}Transform"] = transform for prop in ['webkit', 'Moz', 'ms', 'O']
 
         # set class
         @hr.className = if 1 <= hour <= 12 then 'short' else 'long'
@@ -150,7 +152,9 @@ class AndTimePicker
         @element.querySelector("#{MINUTES_ITEMS_SELECTOR}[data-minute=\"#{minute}\"]").classList.add 'active'
 
         # set rotation
-        @hr.style.transform = "rotate(#{minute / 5 * 30 - 180}deg)"
+        transform = "rotate(#{minute / 5 * 30 - 180}deg)"
+        @hr.style.transform =
+        @hr.style["#{prop}Transform"] = transform for prop in ['webkit', 'Moz', 'ms', 'O']
 
         # set class
         @hr.className = 'middle'
