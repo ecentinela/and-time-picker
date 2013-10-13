@@ -1,7 +1,7 @@
 .and-time-picker{background-color:#f2f2f2;border:1px solid #e0e0e0;font-family:"Helvetica Neue",tahoma;width:300px;}
 .and-time-picker a{cursor:pointer}
 .and-time-picker header{background-color:#fff;color:#8c8c8c;font-size:62px;text-align:center;}
-.and-time-picker header a{display:inline-block;font-size:72px}
+.and-time-picker header a{color:#8c8c8c;display:inline-block;font-size:72px}
 .and-time-picker section{background-color:#fff;-webkit-border-radius:250px;border-radius:250px;margin:20px auto;position:relative;width:250px;height:250px;}
 .and-time-picker section span{position:absolute;top:50%;left:50%;background-color:#333;-webkit-border-radius:5px;border-radius:5px;margin:-2px 0 0 -2px;width:4px;height:4px}
 .and-time-picker section hr{position:absolute;top:50%;left:50%;background-color:#d6f0fa;border:0;margin:2px 0 0 -2px;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);-webkit-transform-origin:2px -2px;-moz-transform-origin:2px -2px;-o-transform-origin:2px -2px;-ms-transform-origin:2px -2px;transform-origin:2px -2px;width:4px;height:50%;}
