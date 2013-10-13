@@ -1,0 +1,210 @@
+and-time-picker-bg-color = #f2f2f2
+and-time-picker-border-color = #e0e0e0
+and-time-picker-font-family = "Helvetica Neue", tahoma
+header-bg-color = #fff
+header-color = #8c8c8c
+header-font-size = 62px
+header-separator-font-size = 72px
+header-active-color = #33b5e5
+body-bg-color = #fff
+body-items-font-size = 18px
+body-items-secondary-font-size = 15px
+body-items-color = #9d9d9d
+body-items-hover-color = #d6f0fa
+body-items-active-color = body-items-hover-color
+body-line-color = body-items-hover-color
+body-dot-color = #333
+button-bg-color = #f2f2f2
+button-color = #4c4c4c
+button-hover-bg-color = lighten(button-bg-color, 40%)
+button-active-bg-color = lighten(button-bg-color, 20%)
+button-border-color = #e0e0e0
+button-font-size = 16px
+button-font-family = and-time-picker-font-family
+
+.and-time-picker
+    background-color and-time-picker-bg-color
+    border 1px solid and-time-picker-border-color
+    font-family and-time-picker-font-family
+    width 300px
+
+    a
+        cursor pointer
+
+    header
+        background-color header-bg-color
+        color header-color
+        font-size header-font-size
+        text-align center
+
+        a
+            display inline-block
+            font-size header-separator-font-size
+
+    section
+        background-color body-bg-color
+        border-radius 250px
+        margin 20px auto
+        position relative
+        size 250px
+
+        span
+            absolute top 50% left 50%
+            background-color body-dot-color
+            border-radius 5px
+            margin -2px 0 0 -2px
+            size 4px
+
+        hr
+            absolute top 50% left 50%
+            background-color body-line-color
+            border 0
+            margin 2px 0 0 -2px
+            transform rotate(180deg)
+            transform-origin 2px -2px
+            size 4px 50%
+
+            &.short
+                height 25%
+
+            &.middle
+                height 33%
+
+            &.long
+                height 40%
+
+        div
+            position absolute
+            size 100%
+            z-index 1
+
+        a
+            border-radius 100px
+            color body-items-color
+            line-height 20px
+            margin -20px 0 0 -20px
+            padding 10px
+            position absolute
+            size 20px
+            text-align center
+            transition background-color .5s
+
+            &.active
+                background-color body-items-active-color
+
+            for i, index in (-2..21)
+                hour = index + 1
+
+                if hour == 24
+                    hour = 0
+
+                &[data-hour={'"' + hour + '"'}]
+                    offset = i > 9 ? 42 : 28
+                    left = 50 + offset * cos(2 * PI * i / 12)
+                    top = 50 + offset * sin(2 * PI * i / 12)
+
+                    font-size i > 9 ? body-items-secondary-font-size : body-items-font-size
+                    left (round(left))%
+                    top (round(top))%
+
+            for i, index in (-3..20)
+                minute = index * 5
+
+                &[data-minute={'"' + minute + '"'}]
+                    offset = 40
+                    left = 50 + offset * cos(2 * PI * i / 12)
+                    top = 50 + offset * sin(2 * PI * i / 12)
+
+                    font-size body-items-font-size
+                    left (round(left))%
+                    top (round(top))%
+
+    button
+        background-color button-bg-color
+        border 0
+        border-top 1px solid button-border-color
+        color button-color
+        cursor pointer
+        font-size button-font-size
+        font-family button-font-family
+        size 100% 60px
+
+        &:hover
+            background-color button-hover-bg-color
+
+        &:active
+            background-color button-active-bg-color
+
+    &.and-time-picker-hour-selection header [data-and-time-picker="hours"],
+    &.and-time-picker-minute-selection header [data-and-time-picker="minutes"]
+        color header-active-color
+        animation header-animation .3s linear
+
+    &.and-time-picker-hour-selection
+        section div[data-and-time-picker="hours"]
+            animation body-animation-hour-enter .3s linear forwards
+
+        section div[data-and-time-picker="minutes"]
+            animation body-animation-hour-exit .3s linear forwards
+
+    &.and-time-picker-minute-selection
+        section div[data-and-time-picker="hours"]
+            animation body-animation-minute-exit .3s linear forwards
+
+        section div[data-and-time-picker="minutes"]
+            animation body-animation-minute-enter .3s linear forwards
+
+@keyframes header-animation
+    0%
+        transform scale(1)
+
+    50%
+        transform scale(.85)
+
+    75%
+        transform scale(1.15)
+
+    100%
+        transform scale(1)
+
+@keyframes body-animation-hour-enter
+    0%
+        opacity 0
+        transform scale(1.2)
+
+    100%
+        opacity 1
+        transform scale(1)
+
+@keyframes body-animation-hour-exit
+    0%
+        opacity 1
+        transform scale(1)
+
+    99%
+        opacity 0
+        transform scale(.6)
+
+    100%
+        transform scale(0)
+
+@keyframes body-animation-minute-enter
+    0%
+        opacity 0
+        transform scale(.6)
+
+    100%
+        opacity 1
+        transform scale(1)
+
+@keyframes body-animation-minute-exit
+    0%
+        opacity 1
+        transform scale(1)
+
+    99%
+        opacity 0
+        transform scale(1.2)
+
+    100%
+        transform scale(0)

@@ -1,0 +1,28 @@
+{
+  "name": "and-time-picker",
+  "main": [
+    "and-time-picker.css",
+    "and-time-picker.js"
+  ],
+  "version": "0.9.0",
+  "homepage": "https://ecentinela.github.io/android-time-picker",
+  "authors": [
+    "Javier Martinez Fernandez <ecentinela@gmail.com>"
+  ],
+  "description": "A simple timepicker component for the web.",
+  "keywords": [
+    "android",
+    "component",
+    "timepicker",
+    "web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "demo.html",
+    "Gruntfile.coffee",
+    "package.json",
+    "README.md"
+  ]
+}

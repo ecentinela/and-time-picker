@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="A timepicker component" name="description">
+    <title>AndTimePicker</title>
+    <link href="and-time-picker.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="and-time-picker"></div>
+    <script type="text/javascript" src="and-time-picker.js"></script>
+    <script type="text/javascript">
+        var d = new Date(), h = d.getHours(), m = d.getMinutes();
+
+        new AndTimePicker("#and-time-picker", {
+            hour: h,
+            minute: m - m % 5
+        })
+            .bind('hour', function(hour) {
+                alert('You selected ' + hour + ' hour');
+            })
+            .bind('minute', function(minute) {
+                alert('You selected ' + minute + ' minute');
+
+            })
+            .bind('accept', function(time) {
+                alert('You accepted ' + time + ' time');
+            });
+    </script>
+</body>
+</html>
