@@ -19,7 +19,7 @@ Configuration
 To use **and-time-picker** on your page, you need to include the **js** and **css** files on your **html**.
 
 ``` html
-<link href="bower_components/and-time-picker/and-time-picker.js" rel="stylesheet">
+<link href="bower_components/and-time-picker/and-time-picker.css" rel="stylesheet">
 <script src="bower_components/and-time-picker/and-time-picker.js"></script>
 ```
 
